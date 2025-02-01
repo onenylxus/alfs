@@ -5,9 +5,8 @@ LABEL version="0.1.0"
 LABEL author="onenylxus"
 LABEL description="Linux From Scratch (LFS)"
 
-ENV LFS=/lfs
-ENV LC_ALL=POSIX
-ENV PATH=/tools/bin:/bin:/usr/bin
+ENV USER_DIR=/home/ubuntu
+ENV HOST_LFS=$USER_DIR/lfs
 
 WORKDIR /bin
 
@@ -27,15 +26,14 @@ RUN apt-get update\
  && apt-get -q -y autoremove\
  && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -pv $LFS/repo\
- && chmod -v a+wt $LFS/repo\
- && ln -sv $LFS/repo /
+WORKDIR $USER_DIR
 
-RUN mkdir -pv $LFS/sources\
- && chmod -v a+wt $LFS/sources\
- && ln -sv $LFS/sources /
+RUN mkdir -pv $HOST_LFS\
+ && chmod -v a+wt $HOST_LFS\
+ && ln -sv $HOST_LFS /
 
-COPY repo/ $LFS/repo/
+COPY lfs/ $HOST_LFS/
 
-RUN bash $LFS/repo/ch2/version-check.sh
-RUN bash $LFS/repo/ch3/download-packages.sh
+RUN bash $HOST_LFS/ch2/version-check.sh
+RUN bash $HOST_LFS/ch2/prepare-host.sh
+RUN bash $HOST_LFS/ch3/download-packages.sh
