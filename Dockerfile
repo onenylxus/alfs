@@ -31,6 +31,11 @@ RUN mkdir -pv $LFS/repo\
  && chmod -v a+wt $LFS/repo\
  && ln -sv $LFS/repo /
 
+RUN mkdir -pv $LFS/sources\
+ && chmod -v a+wt $LFS/sources\
+ && ln -sv $LFS/sources /
+
 COPY repo/ $LFS/repo/
 
 RUN bash $LFS/repo/ch2/version-check.sh
+RUN bash $LFS/repo/ch3/download-packages.sh
