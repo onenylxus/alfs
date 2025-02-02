@@ -6,7 +6,8 @@ LABEL author="onenylxus"
 LABEL description="Linux From Scratch (LFS)"
 
 ENV USER_DIR=/home/ubuntu
-ENV HOST_LFS=$USER_DIR/lfs
+ENV LFS_DIR=/home/lfs
+ENV SH_LFS=$USER_DIR/lfs
 
 WORKDIR /bin
 
@@ -28,12 +29,21 @@ RUN apt-get update\
 
 WORKDIR $USER_DIR
 
-RUN mkdir -pv $HOST_LFS\
- && chmod -v a+wt $HOST_LFS\
- && ln -sv $HOST_LFS /
+RUN mkdir -pv $SH_LFS\
+ && chmod -v a+wt $SH_LFS\
+ && ln -sv $SH_LFS /
 
-COPY lfs/ $HOST_LFS/
+COPY lfs/ $SH_LFS/
 
-RUN bash $HOST_LFS/ch2/version-check.sh
-RUN bash $HOST_LFS/ch2/prepare-host.sh
-RUN bash $HOST_LFS/ch3/download-packages.sh
+RUN bash $SH_LFS/ch2/version-check.sh
+RUN bash $SH_LFS/ch2/prepare-host.sh
+RUN bash $SH_LFS/ch3/download-packages.sh
+RUN bash $SH_LFS/ch4/create-layout.sh
+RUN bash $SH_LFS/ch4/add-user.sh
+
+USER lfs
+COPY .bash_profile .bashrc $LFS_DIR/
+RUN source ~/.bash_profile
+
+WORKDIR $LFS_DIR
+
