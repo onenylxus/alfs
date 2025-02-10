@@ -5,45 +5,44 @@ LABEL version="0.1.0"
 LABEL author="onenylxus"
 LABEL description="Linux From Scratch (LFS)"
 
-ENV USER_DIR=/home/ubuntu
-ENV LFS_DIR=/home/lfs
-ENV SH_LFS=$USER_DIR/lfs
+ENV LFS_SH=/home/ubuntu/lfs
 
 WORKDIR /bin
 
-RUN rm sh\
+RUN rm sh \
  && ln -sf /bin/bash /bin/sh
 
-RUN apt-get update\
- && apt-get install -y\
- bison\
- build-essential\
- file\
- gawk\
- python3\
- sudo\
- texinfo\
- wget\
- && apt-get -q -y autoremove\
+RUN apt-get update           \
+ && apt-get install -y       \
+    bison                    \
+    build-essential          \
+    file                     \
+    gawk                     \
+    python3                  \
+    sudo                     \
+    texinfo                  \
+    wget                     \
+ && apt-get -q -y autoremove \
  && rm -rf /var/lib/apt/lists/*
 
-WORKDIR $USER_DIR
+WORKDIR /home/ubuntu
 
-RUN mkdir -pv $SH_LFS\
- && chmod -v a+wt $SH_LFS\
- && ln -sv $SH_LFS /
+RUN mkdir -pv lfs     \
+ && chmod -v a+wt lfs \
+ && ln -sv lfs /
 
-COPY lfs/ $SH_LFS/
+COPY lfs/ lfs/
 
-RUN bash $SH_LFS/ch2/version-check.sh
-RUN bash $SH_LFS/ch2/prepare-host.sh
-RUN bash $SH_LFS/ch3/download-packages.sh
-RUN bash $SH_LFS/ch4/create-layout.sh
-RUN bash $SH_LFS/ch4/add-user.sh
+RUN bash $LFS_SH/ch2/version-check.sh
+RUN bash $LFS_SH/ch2/prepare-host.sh
+RUN bash $LFS_SH/ch3/download-packages.sh
+RUN bash $LFS_SH/ch4/create-layout.sh
+RUN bash $LFS_SH/ch4/add-user.sh
 
 USER lfs
-COPY .bash_profile .bashrc $LFS_DIR/
+COPY .bash_profile .bashrc /home/lfs/
 RUN source ~/.bash_profile
 
-WORKDIR $LFS_DIR
+WORKDIR /home/lfs
 
+RUN bash $LFS_SH/ch5/binutils-pass-1.sh
