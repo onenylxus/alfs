@@ -46,3 +46,4 @@ RUN source ~/.bash_profile
 WORKDIR /home/lfs
 
 RUN bash $LFS_SH/ch5/binutils-pass-1.sh
+RUN bash $LFS_SH/ch5/gcc-pass-1.sh
