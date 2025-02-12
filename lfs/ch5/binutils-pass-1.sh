@@ -8,13 +8,13 @@ echo "Required disk space: 677 MB"
 tar -xf /sources/binutils-*.tar.xz -C /tmp/
 mv /tmp/binutils-* /tmp/binutils
 
-pushd /tmp/binutils
+pushd /tmp/binutils > /dev/null
 
 mkdir -v build
 cd build
 
 time {
-  ../configure
+  ../configure          \
     --prefix=$LFS/tools \
     --with-sysroot=$LFS \
     --target=$LFS_TGT   \
@@ -28,5 +28,5 @@ time {
 make
 make install
 
-popd
+popd > /dev/null
 rm -rf /tmp/binutils

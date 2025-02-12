@@ -2,14 +2,42 @@
 
 mkdir -v $LFS/sources
 chmod -v a+wt $LFS/sources
-cd $LFS/sources
+
+clean()
+{
+  rm -rf wget-list-sysv md5sums *.tar.* *.patch
+}
+
+pdlchk()
+{
+  local result=1
+  pushd $SOURCES > /dev/null
+
+  if md5sum -c md5sums
+  then
+    result=0
+    mv * $LFS/sources
+    clean
+  fi
+
+  popd > /dev/null
+  return $result
+}
 
 dlpkg()
 {
+  clean
   wget --timestamping "https://www.linuxfromscratch.org/lfs/view/$1/wget-list-sysv"
   wget --timestamping --input-file=wget-list-sysv --continue --directory-prefix=$LFS/sources
   wget --timestamping "https://www.linuxfromscratch.org/lfs/view/$1/md5sums"
 }
+
+if pdlchk
+then
+  echo "OK:    predownload source packages found"
+  chown root:root $LFS/sources/*
+  exit 0
+fi
 
 dlpkg stable
 if md5sum -c md5sums
@@ -19,7 +47,6 @@ then
   exit 0
 fi
 
-rm -rf wget-list-sysv md5sums *.tar.*
 dlpkg development
 if md5sum -c md5sums
 then

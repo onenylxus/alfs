@@ -8,7 +8,7 @@ echo "Required disk space: 4.9 GB"
 tar -xf /sources/gcc-*.tar.xz -C /tmp/
 mv /tmp/gcc-* /tmp/gcc
 
-pushd /tmp/gcc
+pushd /tmp/gcc > /dev/null
 
 tar -xf $LFS/sources/mpfr-4.2.1.tar.xz
 mv -v mpfr-4.2.1 mpfr
@@ -53,7 +53,7 @@ time {
 make
 make install
 
-popd
+popd > /dev/null
 rm -rf /tmp/gcc
 
 cd ..
