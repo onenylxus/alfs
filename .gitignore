@@ -1,5 +1,6 @@
 # Source folder
 sources/md5sums
 sources/wget-list-sysv
+sources/wget-log
 sources/*.tar.*
 sources/*.patch

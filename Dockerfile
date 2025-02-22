@@ -46,3 +46,4 @@ WORKDIR /home/lfs
 RUN $LFS_SH/ch5/binutils-pass-1.sh
 RUN $LFS_SH/ch5/gcc-pass-1.sh
 RUN $LFS_SH/ch5/linux-api-headers.sh
+RUN $LFS_SH/ch5/glibc.sh

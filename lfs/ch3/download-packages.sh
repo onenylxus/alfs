@@ -39,7 +39,7 @@ then
   exit 0
 fi
 
-dlpkg stable
+dlpkg development
 if md5sum -c md5sums
 then
   echo "OK:    downloaded source packages"
@@ -47,7 +47,7 @@ then
   exit 0
 fi
 
-dlpkg development
+dlpkg stable
 if md5sum -c md5sums
 then
   echo "OK:    downloaded source packages"

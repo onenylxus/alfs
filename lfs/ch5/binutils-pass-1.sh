@@ -10,10 +10,10 @@ mv /tmp/binutils-* /tmp/binutils
 
 pushd /tmp/binutils > /dev/null
 
-mkdir -v build
-cd build
-
 time {
+  mkdir -v build
+  cd build
+
   ../configure          \
     --prefix=$LFS/tools \
     --with-sysroot=$LFS \
@@ -23,10 +23,10 @@ time {
     --disable-werror    \
     --enable-new-dtags  \
     --enable-default-hash-style=gnu
-}
 
-make
-make install
+  make
+  make install
+}
 
 popd > /dev/null
 rm -rf /tmp/binutils

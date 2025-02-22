@@ -10,24 +10,24 @@ mv /tmp/gcc-* /tmp/gcc
 
 pushd /tmp/gcc > /dev/null
 
-tar -xf $LFS/sources/mpfr-4.2.1.tar.xz
-mv -v mpfr-4.2.1 mpfr
-tar -xf $LFS/sources/gmp-6.3.0.tar.xz
-mv -v gmp-6.3.0 gmp
-tar -xf $LFS/sources/mpc-1.3.1.tar.gz
-mv -v mpc-1.3.1 mpc
-
-case $(uname -m) in
-  x86_64)
-    sed -e '/m64=/s/lib64/lib/' \
-        -i.orig gcc/config/i386/t-linux64
-  ;;
-esac
-
-mkdir -v build
-cd build
-
 time {
+  tar -xf $LFS/sources/mpfr-*.tar.xz
+  mv -v mpfr-* mpfr
+  tar -xf $LFS/sources/gmp-*.tar.xz
+  mv -v gmp-* gmp
+  tar -xf $LFS/sources/mpc-*.tar.gz
+  mv -v mpc-* mpc
+
+  case $(uname -m) in
+    x86_64)
+      sed -e '/m64=/s/lib64/lib/' \
+          -i.orig gcc/config/i386/t-linux64
+    ;;
+  esac
+
+  mkdir -v build
+  cd build
+
   ../configure                \
     --target=$LFS_TGT         \
     --prefix=$LFS/tools       \
@@ -48,10 +48,10 @@ time {
     --disable-libvtv          \
     --disable-libstdcxx       \
     --enable-languages=c,c++
-}
 
-make
-make install
+  make
+  make install
+}
 
 popd > /dev/null
 rm -rf /tmp/gcc
