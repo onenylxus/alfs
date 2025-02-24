@@ -1,4 +1,4 @@
-#!/bin/bash
+# #!/bin/bash
 
 mkdir -v $LFS/sources
 chmod -v a+wt $LFS/sources
@@ -10,18 +10,19 @@ clean()
 
 pdlchk()
 {
-  local result=1
   pushd $SOURCES > /dev/null
 
   if md5sum -c md5sums
   then
-    result=0
     mv * $LFS/sources
     clean
+    popd > /dev/null
+    echo "OK:    predownload source packages found"
+    chown root:root $LFS/sources/*
+    exit 0
   fi
 
   popd > /dev/null
-  return $result
 }
 
 dlpkg()
@@ -30,30 +31,24 @@ dlpkg()
   wget --timestamping "https://www.linuxfromscratch.org/lfs/view/$1/wget-list-sysv"
   wget --timestamping --input-file=wget-list-sysv --continue --directory-prefix=$LFS/sources
   wget --timestamping "https://www.linuxfromscratch.org/lfs/view/$1/md5sums"
+  check
 }
 
-if pdlchk
-then
-  echo "OK:    predownload source packages found"
-  chown root:root $LFS/sources/*
-  exit 0
-fi
+check()
+{
+  if md5sum -c md5sums
+  then
+    echo "OK:    downloaded source packages"
+    chown root:root $LFS/sources/*
+    exit 0
+  fi
+}
 
-dlpkg development
-if md5sum -c md5sums
-then
-  echo "OK:    downloaded source packages"
-  chown root:root $LFS/sources/*
-  exit 0
-fi
+pdlchk
+while IFS= read -r option
+do
+  dlpkg "$option"
+done < $SOURCES/options.txt
 
-dlpkg stable
-if md5sum -c md5sums
-then
-  echo "OK:    downloaded source packages"
-  chown root:root $LFS/sources/*
-  exit 0
-else
-  echo "ERROR: source packages failed to verify"
-  exit 1
-fi
+echo "ERROR: source packages failed to verify"
+exit 1
