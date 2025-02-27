@@ -48,3 +48,4 @@ RUN $LFS_SH/ch5/gcc-pass-1.sh
 RUN $LFS_SH/ch5/linux-api-headers.sh
 RUN $LFS_SH/ch5/glibc.sh
 RUN $LFS_SH/ch5/libstdc++.sh
+RUN $LFS_SH/ch6/m4.sh
