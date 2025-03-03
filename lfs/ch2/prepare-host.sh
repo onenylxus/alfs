@@ -1,9 +1,9 @@
 #!/bin/bash
 
-export LFS=/mnt/lfs
+export LFS=/lfs
 umask 022
 
-if echo $LFS | grep -q "/mnt/lfs"
+if echo $LFS | grep -q "/lfs"
 then
   echo "OK:    \$LFS variable set"
 else

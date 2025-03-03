@@ -20,10 +20,6 @@ RUN apt-get update\
 
 WORKDIR /home/ubuntu
 
-RUN mkdir -pv lfs\
- && chmod -v a+wt lfs\
- && ln -sv lfs /
-
 COPY lfs/ $LFS_SH
 COPY sources/ $SOURCES
 
@@ -49,3 +45,4 @@ RUN $LFS_SH/ch5/linux-api-headers.sh
 RUN $LFS_SH/ch5/glibc.sh
 RUN $LFS_SH/ch5/libstdc++.sh
 RUN $LFS_SH/ch6/m4.sh
+RUN $LFS_SH/ch6/ncurses.sh
