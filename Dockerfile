@@ -47,3 +47,4 @@ RUN $LFS_SH/ch5/libstdc++.sh
 RUN $LFS_SH/ch6/m4.sh
 RUN $LFS_SH/ch6/ncurses.sh
 RUN $LFS_SH/ch6/bash.sh
+RUN $LFS_SH/ch6/coreutils.sh
