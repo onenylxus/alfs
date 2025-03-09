@@ -1,9 +1,9 @@
 FROM ubuntu:latest
 
-LABEL name="lfs"
+LABEL name="alfs"
 LABEL version="0.1.0"
 LABEL author="onenylxus"
-LABEL description="Linux From Scratch (LFS)"
+LABEL description="Automated Linux From Scratch (ALFS)"
 
 ENV LFS_SH=/opt/lfs
 ENV SOURCES=/opt/sources

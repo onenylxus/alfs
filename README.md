@@ -1,2 +1,2 @@
-# lfs
-Linux From Scratch (LFS)
+# alfs
+Automated Linux From Scratch (ALFS)
