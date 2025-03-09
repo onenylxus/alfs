@@ -3,7 +3,7 @@
 set -e
 echo "Building gcc..."
 echo "Approximate build time: 3.2 SBU"
-echo "Required disk space: 4.9 GB"
+echo "Required disk space: 4.8 GB"
 
 tar -xf /sources/gcc-*.tar.xz -C /tmp/
 mv /tmp/gcc-* /tmp/gcc
@@ -21,7 +21,7 @@ time {
   case $(uname -m) in
     x86_64)
       sed -e '/m64=/s/lib64/lib/' \
-          -i.orig gcc/config/i386/t-linux64
+        -i.orig gcc/config/i386/t-linux64
     ;;
   esac
 
@@ -51,11 +51,12 @@ time {
 
   make
   make install
+
+  cd ..
+  cat gcc/limitx.h gg/glimits.h gcc/limity.h > \
+    `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include/limits.h
 }
 
 popd > /dev/null
 rm -rf /tmp/gcc
 
-cd ..
-cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
-  `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include/limits.h

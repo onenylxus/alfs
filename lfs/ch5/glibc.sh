@@ -2,8 +2,8 @@
 
 set -e
 echo "Building glibc..."
-echo "Approximate build time: 1.3 SBU"
-echo "Required disk space: 828 MB"
+echo "Approximate build time: 1.4 SBU"
+echo "Required disk space: 850 MB"
 
 tar -xf /sources/glibc-*.tar.xz -C /tmp/
 mv /tmp/glibc-* /tmp/glibc
@@ -38,11 +38,11 @@ time {
   make
   make DESTDIR=$LFS install
   sed '/RTLDLIST=/s@/usr@@g' -i $LFS/usr/bin/ldd
+
+  echo 'int main(){}' | $LFS_TGT-gcc -xc -
+  readelf -l a.out | grep ld-linux
+  rm -v a.out
 }
 
 popd > /dev/null
 rm -rf /tmp/glibc
-
-echo 'int main(){}' | $LFS_TGT-gcc -xc -
-readelf -l a.out | grep ld-linux
-rm -v a.out

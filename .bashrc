@@ -10,7 +10,7 @@ if [ ! -L /bin ]
 then
   PATH=/bin:$PATH
 fi
-PATH=/$LFS/tools/bin:$PATH
+PATH=$LFS/tools/bin:$PATH
 
 CONFIG_SITE=$LFS/usr/share/config.site
 

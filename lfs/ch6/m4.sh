@@ -12,11 +12,12 @@ pushd /tmp/m4 > /dev/null
 
 time
 {
-  ./configure --prefix=/usr \
-    --host=$LFS_TGT         \
+  ./configure       \
+    --prefix=/usr   \
+    --host=$LFS_TGT \
     --build=$(build-aux/config.guess)
 
-  time make
+  make
   make DESTDIR=$LFS install
 }
 

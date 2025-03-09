@@ -12,8 +12,6 @@ pushd /tmp/ncurses > /dev/null
 
 time
 {
-  sed -i s/mawk// configure
-
   mkdir build
   pushd build
     ../configure AWK=gawk
@@ -35,7 +33,7 @@ time
     --disable-stripping          \
     AWK=gawk
 
-  time make
+  make
   make DESTDIR=$LFS TIC_PATH=$(pwd)build/progs/tic install
   ln -sv libncursesw.so $LFS/usr/lib/libncurses.so
   sed -e 's/^#if.*XOPEN.*$/#if 1/' \

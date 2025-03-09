@@ -12,4 +12,6 @@ esac
 
 echo 'Defaults secure_path="/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin"' >> /etc/sudoers
 echo "lfs ALL = NOPASSWD : ALL" >> /etc/sudoers
-echo 'Defaults env_keep += "LFS LC_ALL LFS_TGT PATH MAKEFLAGS FETCH_TOOLCHAIN_MODE LFS_TEST LFS_DOCS JOB_COUNT LOOP LOOP_DIR IMAGE_SIZE INITRD_TREE IMAGE_RAM IMAGE_BZ2 IMAGE_ISO IMAGE_HDD"' >> /etc/sudoers
+echo 'Defaults env_keep += "LFS LC_ALL LFS_TGT PATH MAKEFLAGS"' >> /etc/sudoers
+
+[ ! -e /etc/bash.bashrc ] || mv -v /etc/bash.bashrc /etc/bash.bashrc.NOUSE
