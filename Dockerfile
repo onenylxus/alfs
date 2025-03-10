@@ -49,3 +49,4 @@ RUN $LFS_SH/ch6/ncurses.sh
 RUN $LFS_SH/ch6/bash.sh
 RUN $LFS_SH/ch6/coreutils.sh
 RUN $LFS_SH/ch6/diffutils.sh
+RUN $LFS_SH/ch6/file.sh
