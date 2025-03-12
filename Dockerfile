@@ -52,3 +52,4 @@ RUN $LFS_SH/ch6/diffutils.sh
 RUN $LFS_SH/ch6/file.sh
 RUN $LFS_SH/ch6/findutils.sh
 RUN $LFS_SH/ch6/gawk.sh
+RUN $LFS_SH/ch6/grep.sh
