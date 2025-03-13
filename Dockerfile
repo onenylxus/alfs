@@ -54,3 +54,4 @@ RUN $LFS_SH/ch6/gawk.sh
 RUN $LFS_SH/ch6/grep.sh
 RUN $LFS_SH/ch6/gzip.sh
 RUN $LFS_SH/ch6/make.sh
+RUN $LFS_SH/ch6/patch.sh
