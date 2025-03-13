@@ -28,17 +28,16 @@ RUN pushd $LFS_SH/ > /dev/null\
  && popd > /dev/null
 
 RUN $LFS_SH/ch2/version-check.sh
-RUN $LFS_SH/ch2/prepare-host.sh
+RUN $LFS_SH/ch2/set-variable.sh
 RUN $LFS_SH/ch3/download-packages.sh
 RUN $LFS_SH/ch4/create-layout.sh
 RUN $LFS_SH/ch4/add-user.sh
 
 USER lfs
-COPY .bash_profile .bashrc /home/lfs/
-RUN source ~/.bash_profile
 
 WORKDIR /home/lfs
 
+RUN $LFS_SH/ch4/setup-environment.sh
 RUN $LFS_SH/ch5/binutils-pass-1.sh
 RUN $LFS_SH/ch5/gcc-pass-1.sh
 RUN $LFS_SH/ch5/linux-api-headers.sh
@@ -54,3 +53,4 @@ RUN $LFS_SH/ch6/findutils.sh
 RUN $LFS_SH/ch6/gawk.sh
 RUN $LFS_SH/ch6/grep.sh
 RUN $LFS_SH/ch6/gzip.sh
+RUN $LFS_SH/ch6/make.sh
