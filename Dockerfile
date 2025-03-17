@@ -58,3 +58,4 @@ RUN $LFS_SH/ch6/make.sh
 RUN $LFS_SH/ch6/patch.sh
 RUN $LFS_SH/ch6/sed.sh
 RUN $LFS_SH/ch6/tar.sh
+RUN $LFS_SH/ch6/xz.sh
