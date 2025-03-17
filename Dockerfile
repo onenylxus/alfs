@@ -5,6 +5,7 @@ LABEL version="0.1.0"
 LABEL author="onenylxus"
 LABEL description="Automated Linux From Scratch (ALFS)"
 
+ENV LFS=/mnt/lfs
 ENV LFS_SH=/opt/lfs
 ENV SOURCES=/opt/sources
 
@@ -56,3 +57,4 @@ RUN $LFS_SH/ch6/gzip.sh
 RUN $LFS_SH/ch6/make.sh
 RUN $LFS_SH/ch6/patch.sh
 RUN $LFS_SH/ch6/sed.sh
+RUN $LFS_SH/ch6/tar.sh
