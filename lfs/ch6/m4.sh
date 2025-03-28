@@ -5,7 +5,7 @@ echo "Building m4..."
 echo "Approximate build time: 0.1 SBU"
 echo "Required disk space: 32 MB"
 
-tar -xf /sources/m4-*.tar.xz -C /tmp/
+tar -xf $LFS/sources/m4-*.tar.xz -C /tmp/
 mv /tmp/m4-* /tmp/m4
 
 pushd /tmp/m4 > /dev/null

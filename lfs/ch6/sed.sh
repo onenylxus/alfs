@@ -5,7 +5,7 @@ echo "Building m4..."
 echo "Approximate build time: 0.1 SBU"
 echo "Required disk space: 21 MB"
 
-tar -xf /sources/sed-*.tar.xz -C /tmp/
+tar -xf $LFS/sources/sed-*.tar.xz -C /tmp/
 mv /tmp/sed-* /tmp/sed
 
 pushd /tmp/sed > /dev/null

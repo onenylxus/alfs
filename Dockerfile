@@ -34,6 +34,8 @@ RUN $LFS_SH/ch3/download-packages.sh
 RUN $LFS_SH/ch4/create-layout.sh
 RUN $LFS_SH/ch4/add-user.sh
 
+RUN [ ! -e /etc/bash.bashrc ] || mv -v /etc/bash.bashrc /etc/bash.bashrc.NOUSE
+
 USER lfs
 
 WORKDIR /home/lfs

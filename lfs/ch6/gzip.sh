@@ -5,7 +5,7 @@ echo "Building gzip..."
 echo "Approximate build time: 0.1 SBU"
 echo "Required disk space: 11 MB"
 
-tar -xf /sources/gzip-*.tar.xz -C /tmp/
+tar -xf $LFS/sources/gzip-*.tar.xz -C /tmp/
 mv /tmp/gzip-* /tmp/gzip
 
 pushd /tmp/gzip > /dev/null

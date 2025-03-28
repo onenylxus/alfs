@@ -5,7 +5,7 @@ echo "Building glibc..."
 echo "Approximate build time: 1.4 SBU"
 echo "Required disk space: 850 MB"
 
-tar -xf /sources/glibc-*.tar.xz -C /tmp/
+tar -xf $LFS/sources/glibc-*.tar.xz -C /tmp/
 mv /tmp/glibc-* /tmp/glibc
 
 pushd /tmp/glibc > /dev/null
