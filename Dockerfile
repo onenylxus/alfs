@@ -25,39 +25,40 @@ COPY lfs/ $LFS_SH
 COPY sources/ $SOURCES
 
 RUN pushd $LFS_SH/ > /dev/null\
+ && chmod +x *.sh\
  && chmod +x **/*.sh\
  && popd > /dev/null
 
-RUN $LFS_SH/ch2/version-check.sh
-RUN $LFS_SH/ch2/set-variable.sh
-RUN $LFS_SH/ch3/download-packages.sh
-RUN $LFS_SH/ch4/create-layout.sh
-RUN $LFS_SH/ch4/add-user.sh
+RUN $LFS_SH/prepare.sh
 
-RUN [ ! -e /etc/bash.bashrc ] || mv -v /etc/bash.bashrc /etc/bash.bashrc.NOUSE
+# lfs/ch4/create-layout.sh
+RUN mkdir -pv $LFS/{etc,var} $LFS/usr/{bin,lib,sbin}\
+ && for i in bin lib sbin; do ln -sv usr/$i $LFS/$i; done\
+ && case $(uname -m) in\
+ x86_64) mkdir -pv $LFS/lib64 ;;\
+ esac\
+ && mkdir -pv $LFS/tools
+
+# lfs/ch4/add-user.sh
+RUN groupadd lfs\
+ && useradd -s /bin/bash -g lfs -m -k /dev/null lfs\
+ && echo "lfs:lfs" | chpasswd
+RUN adduser lfs sudo
+RUN chown -v lfs $LFS/{usr{,/*},var,etc,tools}\
+ && case $(uname -m) in\
+ x86_64) chown -v lfs $LFS/lib64 ;;\
+ esac
+
+COPY files/sudoers /etc/sudoers
 
 USER lfs
 
+# lfs/ch4/setup-environment.sh
+COPY files/.bash_profile /home/lfs/.bash_profile
+COPY files/.bashrc /home/lfs/.bashrc
+
+RUN source ~/.bash_profile
+
 WORKDIR /home/lfs
 
-RUN $LFS_SH/ch4/setup-environment.sh
-RUN $LFS_SH/ch5/binutils-pass-1.sh
-RUN $LFS_SH/ch5/gcc-pass-1.sh
-RUN $LFS_SH/ch5/linux-api-headers.sh
-RUN $LFS_SH/ch5/glibc.sh
-RUN $LFS_SH/ch5/libstdc++.sh
-RUN $LFS_SH/ch6/m4.sh
-RUN $LFS_SH/ch6/ncurses.sh
-RUN $LFS_SH/ch6/bash.sh
-RUN $LFS_SH/ch6/coreutils.sh
-RUN $LFS_SH/ch6/diffutils.sh
-RUN $LFS_SH/ch6/file.sh
-RUN $LFS_SH/ch6/findutils.sh
-RUN $LFS_SH/ch6/gawk.sh
-RUN $LFS_SH/ch6/grep.sh
-RUN $LFS_SH/ch6/gzip.sh
-RUN $LFS_SH/ch6/make.sh
-RUN $LFS_SH/ch6/patch.sh
-RUN $LFS_SH/ch6/sed.sh
-RUN $LFS_SH/ch6/tar.sh
-RUN $LFS_SH/ch6/xz.sh
+RUN $LFS_SH/build.sh
