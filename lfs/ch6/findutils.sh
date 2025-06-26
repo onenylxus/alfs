@@ -10,17 +10,14 @@ mv /tmp/findutils-* /tmp/findutils
 
 pushd /tmp/findutils > /dev/null
 
-time
-{
-  ./configure                       \
-    --prefix=/usr                   \
-    --localstatedir=/var/lib/locate \
-    --host=$LFS_TGT                 \
-    --build=$(build-aux/config.guess)
+./configure                       \
+  --prefix=/usr                   \
+  --localstatedir=/var/lib/locate \
+  --host=$LFS_TGT                 \
+  --build=$(build-aux/config.guess)
 
-  make
-  make DESTDIR=$LFS install
-}
+make
+make DESTDIR=$LFS install
 
 popd > /dev/null
 rm -rf /tmp/findutils

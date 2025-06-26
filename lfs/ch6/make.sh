@@ -10,16 +10,13 @@ mv /tmp/make-* /tmp/make
 
 pushd /tmp/make > /dev/null
 
-time
-{
-  ./configure       \
-    --prefix=/usr   \
-    --host=$LFS_TGT \
-    --build=$(build-aux/config.guess)
+./configure       \
+  --prefix=/usr   \
+  --host=$LFS_TGT \
+  --build=$(build-aux/config.guess)
 
-  make
-  make DESTDIR=$LFS install
-}
+make
+make DESTDIR=$LFS install
 
 popd > /dev/null
 rm -rf /tmp/make

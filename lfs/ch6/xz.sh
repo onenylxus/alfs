@@ -10,20 +10,17 @@ mv /tmp/xz-* /tmp/xz
 
 pushd /tmp/xz > /dev/null
 
-time
-{
-  ./configure                         \
-    --prefix=/usr                     \
-    --host=$LFS_TGT                   \
-    --build=$(build-aux/config.guess) \
-    --disable-static                  \
-    --docdir=/usr/share/doc/xz-5.6.4
+./configure                         \
+  --prefix=/usr                     \
+  --host=$LFS_TGT                   \
+  --build=$(build-aux/config.guess) \
+  --disable-static                  \
+  --docdir=/usr/share/doc/xz-5.6.4
 
-  make
-  make DESTDIR=$LFS install
+make
+make DESTDIR=$LFS install
 
-  rm -v $LFS/usr/lib/liblzma.la
-}
+rm -v $LFS/usr/lib/liblzma.la
 
 popd > /dev/null
 rm -rf /tmp/xz

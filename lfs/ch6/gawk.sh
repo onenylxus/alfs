@@ -10,18 +10,15 @@ mv /tmp/gawk-* /tmp/gawk
 
 pushd /tmp/gawk > /dev/null
 
-time
-{
-  sed -i 's/extras//' Makefile.in
+sed -i 's/extras//' Makefile.in
 
-  ./configure       \
-    --prefix=/usr   \
-    --host=$LFS_TGT \
-    --build=$(build-aux/config.guess)
+./configure       \
+  --prefix=/usr   \
+  --host=$LFS_TGT \
+  --build=$(build-aux/config.guess)
 
-  make
-  make DESTDIR=$LFS install
-}
+make
+make DESTDIR=$LFS install
 
 popd > /dev/null
 rm -rf /tmp/gawk

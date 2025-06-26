@@ -10,19 +10,16 @@ mv /tmp/bash-* /tmp/bash
 
 pushd /tmp/bash > /dev/null
 
-time
-{
-  ./configure                          \
-    --prefix=/usr                      \
-    --build=$(sh support/config.guess) \
-    --host=$LFS_TGT                    \
-    --without-bash-malloc
+./configure                          \
+  --prefix=/usr                      \
+  --build=$(sh support/config.guess) \
+  --host=$LFS_TGT                    \
+  --without-bash-malloc
 
-  make
-  make DESTDIR=$LFS install
+make
+make DESTDIR=$LFS install
 
-  ln -sv bash $LFS/bin/sh
-}
+ln -sv bash $LFS/bin/sh
 
 popd > /dev/null
 rm -rf /tmp/bash

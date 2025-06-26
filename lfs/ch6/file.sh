@@ -10,25 +10,22 @@ mv /tmp/file-* /tmp/file
 
 pushd /tmp/file > /dev/null
 
-time
-{
-  mkdir build
-  pushd build
-    ../configure           \
-      --disable-bzilb      \
-      --disable-libseccomp \
-      --disable-xzlib      \
-      --disable-zlib
-    make
-  popd
+mkdir build
+pushd build
+  ../configure           \
+    --disable-bzilb      \
+    --disable-libseccomp \
+    --disable-xzlib      \
+    --disable-zlib
+  make
+popd
 
-  ./configure --prefix=/usr --host=$LFS_TGT --build=$(./config.guess)
+./configure --prefix=/usr --host=$LFS_TGT --build=$(./config.guess)
 
-  make FILE_COMPILE=$(pwd)/build/src/file
-  make DESTDIR=$LFS install
+make FILE_COMPILE=$(pwd)/build/src/file
+make DESTDIR=$LFS install
 
-  rm -v $LFS/usr/lib/libmagic.la
-}
+rm -v $LFS/usr/lib/libmagic.la
 
 popd > /dev/null
 rm -rf /tmp/file
