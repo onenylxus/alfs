@@ -4,7 +4,6 @@ exec sudo -E -u root /bin/sh - <<EOF
 chown -R root:root $LFS/tools
 
 sync
-set -e
 
 $LFS_SH/ch5/binutils-pass-1.sh
 $LFS_SH/ch5/gcc-pass-1.sh

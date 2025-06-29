@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-echo "Building gcc..."
+echo "Building gcc (pass 1)..."
 echo "Approximate build time: 3.2 SBU"
 echo "Required disk space: 4.8 GB"
 
