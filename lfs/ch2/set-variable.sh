@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# export LFS=/mnt/lfs
+export LFS=/mnt/lfs
 umask 022
 
 mkdir -pv $LFS
