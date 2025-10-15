@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 echo "Building findutils..."
 echo "Approximate build time: 0.2 SBU"
 echo "Required disk space: 48 MB"

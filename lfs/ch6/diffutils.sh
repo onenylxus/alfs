@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 echo "Building diffutils..."
 echo "Approximate build time: 0.1 SBU"
 echo "Required disk space: 35 MB"

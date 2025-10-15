@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 echo "Building glibc..."
 echo "Approximate build time: 1.4 SBU"
 echo "Required disk space: 850 MB"

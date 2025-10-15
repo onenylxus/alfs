@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 echo "Building gawk..."
 echo "Approximate build time: 0.1 SBU"
 echo "Required disk space: 47 MB"

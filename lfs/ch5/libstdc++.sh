@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 echo "Building libstdc++..."
 echo "Approximate build time: 0.2 SBU"
 echo "Required disk space: 850 MB"

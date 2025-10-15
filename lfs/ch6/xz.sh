@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 echo "Building xz..."
 echo "Approximate build time: 0.1 SBU"
 echo "Required disk space: 21 MB"

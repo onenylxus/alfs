@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 echo "Building grep..."
 echo "Approximate build time: 0.1 SBU"
 echo "Required disk space: 27 MB"

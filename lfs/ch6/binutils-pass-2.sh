@@ -1,7 +1,6 @@
 #!/bin/bash
 
-set -e
-echo "Building binutils..."
+echo "Building binutils (pass 2)..."
 echo "Approximate build time: 0.4 SBU"
 echo "Required disk space: 549 MB"
 

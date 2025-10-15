@@ -1,19 +1,24 @@
+# use ubuntu as image
 FROM ubuntu:latest
 
+# image information
 LABEL name="alfs"
 LABEL version="0.1.0"
 LABEL author="onenylxus"
 LABEL description="Automated Linux From Scratch (ALFS)"
 
+# LFS variables
 ENV LFS=/mnt/lfs
 ENV LFS_SH=/opt/lfs
 ENV SOURCES=/opt/sources
 
 WORKDIR /bin
 
+# set bash as default shell
 RUN rm sh\
  && ln -sf /bin/bash /bin/sh
 
+# install packages
 RUN apt-get update\
  && apt-get install -y bison build-essential file gawk python3 sudo texinfo wget\
  && apt-get -q -y autoremove\
@@ -21,17 +26,19 @@ RUN apt-get update\
 
 WORKDIR /home/ubuntu
 
+# copy files
 COPY lfs/ $LFS_SH
 COPY sources/ $SOURCES
 
+# give permissions to scripts
 RUN pushd $LFS_SH/ > /dev/null\
  && chmod +x *.sh\
- && chmod +x **/*.sh\
  && popd > /dev/null
 
+# perform LFS/2-3
 RUN $LFS_SH/prepare.sh
 
-# lfs/ch4/create-layout.sh
+# perform LFS/4.2 (Creating a Limited Directory Layout in the LFS Filesystem)
 RUN mkdir -pv $LFS/{etc,var} $LFS/usr/{bin,lib,sbin}\
  && for i in bin lib sbin; do ln -sv usr/$i $LFS/$i; done\
  && case $(uname -m) in\
@@ -39,7 +46,7 @@ RUN mkdir -pv $LFS/{etc,var} $LFS/usr/{bin,lib,sbin}\
  esac\
  && mkdir -pv $LFS/tools
 
-# lfs/ch4/add-user.sh
+# perform LFS/4.3 (Adding the LFS User)
 RUN groupadd lfs\
  && useradd -s /bin/bash -g lfs -m -k /dev/null lfs\
  && echo "lfs:lfs" | chpasswd
@@ -47,18 +54,17 @@ RUN adduser lfs sudo
 RUN chown -v lfs $LFS/{usr{,/*},var,etc,tools}\
  && case $(uname -m) in\
  x86_64) chown -v lfs $LFS/lib64 ;;\
- esac
+ esac\
+ && chown -v lfs $LFS_SH
 
 COPY files/sudoers /etc/sudoers
 
 USER lfs
 
-# lfs/ch4/setup-environment.sh
+# perform LFS/4.4 (Setting Up the Environment)
 COPY files/.bash_profile /home/lfs/.bash_profile
 COPY files/.bashrc /home/lfs/.bashrc
-
 RUN source ~/.bash_profile
 
-WORKDIR /home/lfs
-
-RUN $LFS_SH/build.sh
+# perform the rest of LFS process
+ENTRYPOINT ["/opt/lfs/build.sh"]

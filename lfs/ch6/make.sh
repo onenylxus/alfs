@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 echo "Building make..."
 echo "Approximate build time: less than 0.1 SBU"
 echo "Required disk space: 15 MB"
