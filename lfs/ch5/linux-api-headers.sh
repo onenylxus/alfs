@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 echo "Building linux-api-headers..."
 echo "Approximate build time: less than 0.1 SBU"
 echo "Required disk space: 1.6 GB"

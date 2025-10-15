@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 echo "Building coreutils..."
 echo "Approximate build time: 0.3 SBU"
 echo "Required disk space: 181 MB"

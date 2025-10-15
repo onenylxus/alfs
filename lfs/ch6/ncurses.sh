@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 echo "Building ncurses..."
 echo "Approximate build time: 0.4 SBU"
 echo "Required disk space: 53 MB"
