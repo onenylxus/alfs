@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "$(dirname "${BASH_SOURCE[0]}")"
+
 clean() {
   rm -rf wget-list-sysv md5sums *.tar.* *.patch
 }
