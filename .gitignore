@@ -2,3 +2,6 @@
 sources/*
 !sources/options.txt
 !sources/predownload.sh
+
+# Logs
+*.log
