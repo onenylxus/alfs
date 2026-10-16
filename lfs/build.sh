@@ -1,5 +1,7 @@
 #!/bin/bash -x
 
+set -euo pipefail
+
 exec sudo -E -u root /bin/sh - <<EOF
 chown -R root:root $LFS/tools
 sync
@@ -9,6 +11,7 @@ sh $LFS_SH/ch5/gcc-pass-1.sh
 sh $LFS_SH/ch5/linux-api-headers.sh
 sh $LFS_SH/ch5/glibc.sh
 sh $LFS_SH/ch5/libstdc++.sh
+
 sh $LFS_SH/ch6/m4.sh
 sh $LFS_SH/ch6/ncurses.sh
 sh $LFS_SH/ch6/bash.sh
@@ -27,4 +30,4 @@ sh $LFS_SH/ch6/xz.sh
 sh $LFS_SH/ch6/binutils-pass-2.sh
 sh $LFS_SH/ch6/gcc-pass-2.sh
 
-EOF
+sh $LFS_SH/ch7/change-ownership.sh

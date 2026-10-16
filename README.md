@@ -15,13 +15,13 @@ docker build -t alfs .
 The image `ENTRYPOINT` runs `/opt/lfs/build.sh`, which executes the ALFS build steps automatically.
 
 ```bash
-docker run --rm --name alfs-build alfs
+docker run --rm --name alfs-build --privileged alfs
 ```
 
 ### (Optional) Save Build Logs
 
 ```bash
-docker run --rm --name alfs-build alfs | tee alfs-build.log
+docker run --rm --name alfs-build --privileged alfs | tee alfs-build.log
 ```
 
 ### (Optional) Interactive Debug Shell
