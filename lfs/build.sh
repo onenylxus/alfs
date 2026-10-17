@@ -31,3 +31,6 @@ sh $LFS_SH/ch6/binutils-pass-2.sh
 sh $LFS_SH/ch6/gcc-pass-2.sh
 
 sh $LFS_SH/ch7/change-ownership.sh
+sh $LFS_SH/ch7/prepare-virtual-kernel.sh
+
+EOF

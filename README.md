@@ -21,7 +21,7 @@ docker run --rm --name alfs-build --privileged alfs
 ### (Optional) Save Build Logs
 
 ```bash
-docker run --rm --name alfs-build --privileged alfs | tee alfs-build.log
+docker run --rm --name alfs-build --privileged alfs 2>&1 | tee alfs-build.log
 ```
 
 ### (Optional) Interactive Debug Shell
