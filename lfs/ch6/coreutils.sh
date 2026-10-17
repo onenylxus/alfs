@@ -4,7 +4,7 @@ echo "Building coreutils..."
 echo "Approximate build time: 0.3 SBU"
 echo "Required disk space: 181 MB"
 
-tar -xf $LFS/sources/coreutils-*.tar.gz -C /tmp/
+tar -xf $LFS/sources/coreutils-*.tar.xz -C /tmp/
 mv /tmp/coreutils-* /tmp/coreutils
 
 pushd /tmp/coreutils > /dev/null
@@ -25,4 +25,4 @@ mv -v $LFS/usr/share/man/man1/chroot.1 $LFS/usr/share/man/man8/chroot.8
 sed -i 's/"1"/"8"/' $LFS/usr/share/man/man8/chroot.8
 
 popd > /dev/null
-rm -rf /tmp/bash
+rm -rf /tmp/coreutils

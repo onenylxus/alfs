@@ -4,7 +4,7 @@ echo "Building make..."
 echo "Approximate build time: less than 0.1 SBU"
 echo "Required disk space: 15 MB"
 
-tar -xf $LFS/sources/make-*.tar.xz -C /tmp/
+tar -xf $LFS/sources/make-*.tar.gz -C /tmp/
 mv /tmp/make-* /tmp/make
 
 pushd /tmp/make > /dev/null

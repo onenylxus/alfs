@@ -4,7 +4,7 @@ echo "Building file..."
 echo "Approximate build time: 0.1 SBU"
 echo "Required disk space: 42 MB"
 
-tar -xf $LFS/sources/file-*.tar.xz -C /tmp/
+tar -xf $LFS/sources/file-*.tar.gz -C /tmp/
 mv /tmp/file-* /tmp/file
 
 pushd /tmp/file > /dev/null
@@ -12,7 +12,7 @@ pushd /tmp/file > /dev/null
 mkdir build
 pushd build
   ../configure           \
-    --disable-bzilb      \
+    --disable-bzlib      \
     --disable-libseccomp \
     --disable-xzlib      \
     --disable-zlib

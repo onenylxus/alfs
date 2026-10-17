@@ -2,7 +2,7 @@
 
 echo "Building libstdc++..."
 echo "Approximate build time: 0.2 SBU"
-echo "Required disk space: 850 MB"
+echo "Required disk space: 1.3 GB"
 
 tar -xf $LFS/sources/gcc-*.tar.xz -C /tmp/
 mv /tmp/gcc-* /tmp/gcc
@@ -19,7 +19,7 @@ cd build
   --disable-multilib         \
   --disable-nls              \
   --disable-libstdcxx-pch    \
-  --with-gxx-include-dir=$LFS/tools/$LFS_TGT/include/c++/14.2.0
+  --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/15.2.0
 
 make
 make DESTDIR=$LFS install

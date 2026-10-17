@@ -2,7 +2,7 @@
 
 echo "Building glibc..."
 echo "Approximate build time: 1.4 SBU"
-echo "Required disk space: 850 MB"
+echo "Required disk space: 870 MB"
 
 tar -xf $LFS/sources/glibc-*.tar.xz -C /tmp/
 mv /tmp/glibc-* /tmp/glibc
@@ -17,7 +17,7 @@ case $(uname -m) in
     ;;
 esac
 
-patch -Np1 -i ../glibc-2.40-fhs-1.patch
+patch -Np1 -i $LFS/sources/glibc-2.42-fhs-1.patch
 
 mkdir -v build
 cd build
@@ -28,18 +28,23 @@ echo "rootsbindir=/usr/sbin" > configparms
   --prefix=/usr                      \
   --host=$LFS_TGT                    \
   --build=$(../scripts/config.guess) \
-  --enable-kernel=4.19               \
-  --with-headers=$LFS/usr/include    \
   --disable-nscd                     \
-  libc_cv_slibdir=/usr/lib
+  libc_cv_slibdir=/usr/lib           \
+  --enable-kernel=5.4
 
 make
 make DESTDIR=$LFS install
 sed '/RTLDLIST=/s@/usr@@g' -i $LFS/usr/bin/ldd
 
-echo 'int main(){}' | $LFS_TGT-gcc -xc -
-readelf -l a.out | grep ld-linux
-rm -v a.out
+echo 'int main(){}' | $LFS_TGT-gcc -x c - -v -Wl,--verbose &> dummy.log
+readelf -l a.out | grep ': /lib'
+grep -E -o "$LFS/lib.*/S?crt[1in].*succeeded" dummy.log
+grep -B3 "^ $LFS/usr/include" dummy.log
+grep 'SEARCH.*/usr/lib' dummy.log | sed 's|; |\n|g'
+grep "/lib.*/libc.so.6 " dummy.log
+grep found dummy.log
+
+rm -v a.out dummy.log
 
 popd > /dev/null
 rm -rf /tmp/glibc

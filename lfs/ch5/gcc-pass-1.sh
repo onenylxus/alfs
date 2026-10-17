@@ -1,8 +1,8 @@
 #!/bin/bash
 
 echo "Building gcc (pass 1)..."
-echo "Approximate build time: 3.2 SBU"
-echo "Required disk space: 4.8 GB"
+echo "Approximate build time: 3.8 SBU"
+echo "Required disk space: 5.4 GB"
 
 tar -xf $LFS/sources/gcc-*.tar.xz -C /tmp/
 mv /tmp/gcc-* /tmp/gcc
@@ -29,7 +29,7 @@ cd build
 ../configure                \
   --target=$LFS_TGT         \
   --prefix=$LFS/tools       \
-  --with-glibc-version=2.40 \
+  --with-glibc-version=2.42 \
   --with-sysroot=$LFS       \
   --with-newlib             \
   --without-headers         \
@@ -51,9 +51,8 @@ make
 make install
 
 cd ..
-cat gcc/limitx.h gg/glimits.h gcc/limity.h > \
+cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
   `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include/limits.h
 
 popd > /dev/null
 rm -rf /tmp/gcc
-

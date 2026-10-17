@@ -1,8 +1,8 @@
 #!/bin/bash
 
 echo "Building gcc (pass 2)..."
-echo "Approximate build time: 3.2 SBU"
-echo "Required disk space: 4.8 GB"
+echo "Approximate build time: 4.5 SBU"
+echo "Required disk space: 6.0 GB"
 
 tar -xf $LFS/sources/gcc-*.tar.xz -C /tmp/
 mv /tmp/gcc-* /tmp/gcc
@@ -55,4 +55,3 @@ ln -sv gcc $LFS/usr/bin/cc
 
 popd > /dev/null
 rm -rf /tmp/gcc
-

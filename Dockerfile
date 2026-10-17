@@ -1,5 +1,5 @@
 # use ubuntu as image
-FROM ubuntu:latest
+FROM ubuntu:24.04
 
 # image information
 LABEL name="alfs"

@@ -2,14 +2,14 @@
 
 echo "Building binutils (pass 2)..."
 echo "Approximate build time: 0.4 SBU"
-echo "Required disk space: 549 MB"
+echo "Required disk space: 548 MB"
 
 tar -xf $LFS/sources/binutils-*.tar.xz -C /tmp/
 mv /tmp/binutils-* /tmp/binutils
 
 pushd /tmp/binutils > /dev/null
 
-sed '6009s/$add_dir//' -i ltmain.sh
+sed '6031s/$add_dir//' -i ltmain.sh
 
 mkdir -v build
 cd build

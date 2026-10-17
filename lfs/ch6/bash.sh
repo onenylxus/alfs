@@ -2,7 +2,7 @@
 
 echo "Building bash..."
 echo "Approximate build time: 0.2 SBU"
-echo "Required disk space: 68 MB"
+echo "Required disk space: 72 MB"
 
 tar -xf $LFS/sources/bash-*.tar.gz -C /tmp/
 mv /tmp/bash-* /tmp/bash

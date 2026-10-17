@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Building m4..."
+echo "Building sed..."
 echo "Approximate build time: 0.1 SBU"
 echo "Required disk space: 21 MB"
 

@@ -2,7 +2,7 @@
 
 echo "Building linux-api-headers..."
 echo "Approximate build time: less than 0.1 SBU"
-echo "Required disk space: 1.6 GB"
+echo "Required disk space: 1.7 GB"
 
 tar -xf $LFS/sources/linux-*.tar.xz -C /tmp/
 mv /tmp/linux-* /tmp/linux

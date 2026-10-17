@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+# The Docker ENTRYPOINT runs as a non-login shell, so ~/.bashrc is not sourced
+# automatically. Load it here to provide LFS_TGT, LC_ALL, CONFIG_SITE,
+# MAKEFLAGS and the $LFS/tools/bin PATH required by the chapter 5/6 scripts.
+. "$HOME/.bashrc"
+
 exec sudo -E -u root /bin/sh - <<EOF
 chown -R root:root $LFS/tools
 sync

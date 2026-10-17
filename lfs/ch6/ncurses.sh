@@ -2,18 +2,19 @@
 
 echo "Building ncurses..."
 echo "Approximate build time: 0.4 SBU"
-echo "Required disk space: 53 MB"
+echo "Required disk space: 54 MB"
 
-tar -xf $LFS/sources/ncurses-*.tar.gz -C /tmp/
+tar -xf $LFS/sources/ncurses-*.tgz -C /tmp/
 mv /tmp/ncurses-* /tmp/ncurses
 
 pushd /tmp/ncurses > /dev/null
 
 mkdir build
 pushd build
-  ../configure AWK=gawk
+  ../configure --prefix=$LFS/tools AWK=gawk
   make -C include
   make -C progs tic
+  install progs/tic $LFS/tools/bin
 popd
 
 ./configure                    \
@@ -31,7 +32,7 @@ popd
   AWK=gawk
 
 make
-make DESTDIR=$LFS TIC_PATH=$(pwd)build/progs/tic install
+make DESTDIR=$LFS install
 ln -sv libncursesw.so $LFS/usr/lib/libncurses.so
 sed -e 's/^#if.*XOPEN.*$/#if 1/' \
   -i $LFS/usr/include/curses.h
