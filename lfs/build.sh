@@ -38,4 +38,15 @@ sh $LFS_SH/ch6/gcc-pass-2.sh
 sh $LFS_SH/ch7/change-ownership.sh
 sh $LFS_SH/ch7/prepare-virtual-kernel.sh
 
+mkdir -pv $LFS/opt/lfs
+mount -v --bind $LFS_SH $LFS/opt/lfs
+if [ ! -e $LFS/opt/lfs/ch7/create-directories.sh ]; then
+  echo "ERROR: failed to bind mount $LFS_SH into the chroot"
+  echo "ERROR: rebuild the image and run the container with --privileged"
+  exit 1
+fi
+
+umount -v $LFS/opt/lfs
+rmdir $LFS/opt/lfs
+
 EOF
