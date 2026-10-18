@@ -46,6 +46,8 @@ if [ ! -e $LFS/opt/lfs/ch7/create-directories.sh ]; then
   exit 1
 fi
 
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch7/create-directories.sh"
+
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
 
