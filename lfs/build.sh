@@ -47,6 +47,7 @@ if [ ! -e $LFS/opt/lfs/ch7/create-directories.sh ]; then
 fi
 
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch7/create-directories.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch7/create-essential-files.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
