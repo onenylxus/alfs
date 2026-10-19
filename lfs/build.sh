@@ -54,6 +54,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch7/perl.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch7/python.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch7/texinfo.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch7/util-linux.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch7/cleanup.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
