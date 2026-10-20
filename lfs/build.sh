@@ -62,6 +62,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/glibc.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/zlib.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/bzip2.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/xz.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/lz4.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
