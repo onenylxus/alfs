@@ -59,6 +59,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch7/cleanup.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/man-pages.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/iana-etc.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/glibc.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/zlib.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
