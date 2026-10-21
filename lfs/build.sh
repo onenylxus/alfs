@@ -77,6 +77,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/binutils.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/gmp.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/mpfr.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/mpc.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/attr.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
