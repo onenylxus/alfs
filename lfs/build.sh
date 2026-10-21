@@ -73,6 +73,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/tcl.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/expect.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/dejagnu.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/pkgconf.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/binutils.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
