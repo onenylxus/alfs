@@ -81,6 +81,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/attr.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/acl.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/libcap.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/libxcrypt.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/shadow.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
