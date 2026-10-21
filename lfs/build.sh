@@ -69,6 +69,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/readline.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/m4.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/bc.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/flex.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/tcl.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
