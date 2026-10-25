@@ -92,6 +92,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/grep.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/bash.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/libtool.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/gdbm.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/gperf.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
