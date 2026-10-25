@@ -100,6 +100,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/perl.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/xml-parser.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/intltool.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/autoconf.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/automake.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
