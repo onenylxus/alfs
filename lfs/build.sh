@@ -107,6 +107,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/libffi.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/python.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/flit-core.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/packaging.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/wheel.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
