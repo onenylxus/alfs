@@ -98,6 +98,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/inetutils.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/less.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/perl.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/xml-parser.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/intltool.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
