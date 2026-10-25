@@ -87,6 +87,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/ncurses.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/sed.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/psmisc.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/gettext.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/bison.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
