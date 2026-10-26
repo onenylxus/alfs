@@ -111,6 +111,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/wheel.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/setuptools.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/ninja.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/meson.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/kmod.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
