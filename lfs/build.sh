@@ -114,6 +114,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/meson.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/kmod.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/coreutils.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/diffutils.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/gawk.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
