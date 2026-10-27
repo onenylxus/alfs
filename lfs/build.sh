@@ -118,6 +118,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/gawk.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/findutils.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/groff.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/grub.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/gzip.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
