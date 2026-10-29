@@ -122,6 +122,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/gzip.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/iproute2.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/kbd.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/libpipeline.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/make.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
