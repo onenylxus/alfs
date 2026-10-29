@@ -124,6 +124,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/kbd.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/libpipeline.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/make.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/patch.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/tar.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
