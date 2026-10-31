@@ -133,6 +133,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/udev.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/man-db.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/procps-ng.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/util-linux.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/e2fsprogs.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
