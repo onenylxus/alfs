@@ -130,6 +130,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/vim.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/markupsafe.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/jinja2.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/udev.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/man-db.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
