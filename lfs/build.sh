@@ -136,6 +136,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/util-linux.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/e2fsprogs.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/sysklogd.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/sysvinit.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/stripping.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
