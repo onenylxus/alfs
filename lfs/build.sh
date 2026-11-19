@@ -140,6 +140,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/stripping.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch8/cleanup.sh"
 
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch9/bootscripts.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch9/symlinks.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
