@@ -149,6 +149,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch9/etcshells.sh"
 
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch10/fstab.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch10/kernel.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch10/grub.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
