@@ -145,6 +145,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch9/network.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch9/usage.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch9/locale.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch9/inputrc.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch9/etcshells.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
