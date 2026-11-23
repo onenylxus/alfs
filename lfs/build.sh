@@ -143,6 +143,7 @@ sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch9/bootscripts.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch9/symlinks.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch9/network.sh"
 sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch9/usage.sh"
+sh $LFS_SH/ch7/enter-chroot.sh "bash /opt/lfs/ch9/locale.sh"
 
 umount -v $LFS/opt/lfs
 rmdir $LFS/opt/lfs
