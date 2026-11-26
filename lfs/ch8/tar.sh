@@ -9,8 +9,6 @@ mv /tmp/tar-* /tmp/tar
 
 pushd /tmp/tar > /dev/null
 
-# The book builds as the unprivileged "lfs" user; this project builds as root,
-# so tar's configure needs FORCE_UNSAFE_CONFIGURE=1 to pass its root check.
 FORCE_UNSAFE_CONFIGURE=1  \
 ./configure --prefix=/usr
 

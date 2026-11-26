@@ -13,10 +13,10 @@ pushd /tmp/linux > /dev/null
 
 make mrproper
 
-# The book uses the interactive `make menuconfig` here. This build is
-# unattended, so start from the architecture default configuration and then
-# apply the required settings from Section 10.3.1 by their configuration
-# symbols.
+# === ALFS CUSTOM CODE ===
+# The book uses the interactive `make menuconfig`; this unattended build
+# starts from the architecture default and applies the required settings by
+# configuration symbol.
 make defconfig
 
 scripts/config --disable WERROR
@@ -48,6 +48,7 @@ scripts/config --enable X86_X2APIC
 scripts/config --enable BLK_DEV_NVME
 
 make olddefconfig
+# === ALFS CUSTOM CODE ===
 
 make
 
@@ -55,7 +56,7 @@ make modules_install
 
 # The LFS system built in Docker has no separate /boot partition, so the
 # optional `mount /boot` from the book is not needed.
-cp -iv arch/x86/boot/bzImage /boot/vmlinuz-6.16.1-lfs-12.4
+cp -iv arch/x86/boot/bzImage /boot/vmlinuz-6.16.1-lfs
 
 cp -iv System.map /boot/System.map-6.16.1
 

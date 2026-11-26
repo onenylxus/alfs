@@ -1,5 +1,8 @@
 # #!/bin/bash
 
+# === ALFS CUSTOM CODE ===
+# Use the pre-downloaded packages from /opt/sources when they verify, and
+# otherwise download the package list for each configured LFS release.
 mkdir -v $LFS/sources
 chmod -v a+wt $LFS/sources
 
@@ -57,3 +60,4 @@ done < $SOURCES/options.txt
 
 echo "ERROR: source packages failed to verify"
 exit 1
+# === ALFS CUSTOM CODE ===

@@ -1,12 +1,9 @@
 #!/bin/bash
-#
-# Enter the LFS system built into /mnt/lfs by this image.
-#
-# This is a Docker-only helper: the LFS book mounts the virtual kernel
-# filesystems before entering the chroot. The committed image does not keep
-# those mounts, so mount them here. The container must be run with
-# --privileged.
 
+# === ALFS CUSTOM CODE ===
+# Docker-only helper: mount the virtual kernel filesystems into /mnt/lfs and
+# enter the LFS chroot. The committed image does not keep those mounts, and
+# the container must be run with --privileged.
 set -e
 
 for fs in dev proc sys run; do
@@ -25,3 +22,4 @@ done
 cd /
 
 exec chroot /mnt/lfs /bin/bash --login "$@"
+# === ALFS CUSTOM CODE ===

@@ -40,9 +40,11 @@ useradd -D --gid 999
 
 sed -i '/MAIL/s/yes/no/' /etc/default/useradd
 
-# The book sets the root password interactively here. This project runs
-# unattended, so use the same non-interactive approach as the Dockerfile.
+# === ALFS CUSTOM CODE ===
+# The book sets the root password interactively; set it non-interactively so
+# the image build can run unattended.
 echo "root:root" | chpasswd
+# === ALFS CUSTOM CODE ===
 
 popd > /dev/null
 rm -rf /tmp/shadow

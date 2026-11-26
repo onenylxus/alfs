@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# === ALFS CUSTOM CODE ===
+# Build the builder image, run the LFS build in a privileged container, and
+# commit the result to a reusable LFS image.
 set -euo pipefail
 
 # Run from the repository root so the Docker build context and log path stay
@@ -6,7 +10,7 @@ set -euo pipefail
 cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 IMAGE="${IMAGE:-alfs}"
-LFS_IMAGE="${LFS_IMAGE:-alfs-lfs:12.4}"
+LFS_IMAGE="${LFS_IMAGE:-alfs-lfs}"
 CONTAINER="${CONTAINER:-alfs-build}"
 LOG="${LOG:-alfs-build.log}"
 
@@ -43,3 +47,4 @@ docker rm "$CONTAINER" >/dev/null
 echo "Created Docker image: $LFS_IMAGE"
 echo "Enter the LFS system with:"
 echo "  docker run -it --rm --privileged $LFS_IMAGE"
+# === ALFS CUSTOM CODE ===

@@ -1,5 +1,7 @@
 #!/bin/bash -x
 
+# === ALFS CUSTOM CODE ===
+# Automate the unattended LFS build inside the Docker builder image.
 set -euo pipefail
 
 # The Docker ENTRYPOINT runs as a non-login shell, so ~/.bashrc is not sourced
@@ -162,3 +164,4 @@ rmdir $LFS/opt/lfs
 trap - EXIT
 
 EOF
+# === ALFS CUSTOM CODE ===
