@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "Building linux..."
 echo "Approximate build time: 0.4 - 32 SBU (typically about 2.5 SBU)"
 echo "Required disk space: 1.7 - 14 GB (typically about 2.3 GB)"

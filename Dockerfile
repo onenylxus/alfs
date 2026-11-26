@@ -58,6 +58,8 @@ RUN chown -v lfs $LFS/{usr{,/*},var,etc,tools}\
  && chown -v lfs $LFS_SH
 
 COPY files/sudoers /etc/sudoers
+COPY lfs/ch4/enter-lfs.sh /usr/local/bin/enter-lfs
+RUN chmod +x /usr/local/bin/enter-lfs
 
 USER lfs
 

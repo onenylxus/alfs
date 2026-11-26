@@ -52,7 +52,10 @@ for i in $(find /usr/lib -type f -name \*.so* ! -name \*dbg) \
     case "$online_usrbin $online_usrlib $save_usrlib" in
         *$(basename $i)* )
             ;;
-        * ) strip --strip-debug $i
+        # The book tolerates strip errors on the non-ELF files matched by
+        # this loop (scripts and linker scripts). Keep errexit for real
+        # failures by explicitly ignoring only those strip errors.
+        * ) strip --strip-debug $i || true
             ;;
     esac
 done

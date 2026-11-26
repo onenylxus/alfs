@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "Setting up GRUB..."
 
 # The book runs `grub-install /dev/sda`. Inside Docker, /dev/sda is the host
@@ -13,6 +15,10 @@ else
   echo "LFS_DISK is not set; skipping grub-install."
   echo "Run grub-install --target=i386-pc <disk> for the target system."
 fi
+
+# grub-install creates /boot/grub in the book. When it is skipped in Docker,
+# create the directory explicitly so the configuration file can be written.
+install -v -m755 -d /boot/grub
 
 # If LFS_DISK is not /dev/sda, adjust the GRUB root and kernel root= values.
 cat > /boot/grub/grub.cfg << "EOF"

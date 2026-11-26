@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "Creating /etc/fstab..."
 
 # The book's example layout is used: /dev/sda2 is the root partition and

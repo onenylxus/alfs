@@ -10,6 +10,14 @@ if [ $# -gt 0 ]; then
   set -- -c "$*"
 fi
 
+# LFS_DISK is a Docker-only addition: it lets grub.sh install GRUB on an
+# explicitly selected disk or loop device instead of the host's /dev/sda.
+if [ -n "${LFS_DISK:-}" ]; then
+  LFS_DISK_ENV="LFS_DISK=$LFS_DISK"
+else
+  LFS_DISK_ENV=""
+fi
+
 chroot "$LFS" /usr/bin/env -i \
   HOME=/root                  \
   TERM="$TERM"                \
@@ -17,4 +25,5 @@ chroot "$LFS" /usr/bin/env -i \
   PATH=/usr/bin:/usr/sbin     \
   MAKEFLAGS="-j$(nproc)"      \
   TESTSUITEFLAGS="-j$(nproc)" \
+  $LFS_DISK_ENV               \
   /bin/bash --login "$@"
